@@ -1,0 +1,159 @@
+.liveFeedCont{
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: hsl(195, 80%, 50%);
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 0px 40px 40px;
+    margin: 10px;
+}
+.liveFeedCont h1{
+    font-family: "Playwrite DK Loopet", cursive;
+    font-optical-sizing: auto;
+    font-weight: bold;
+    font-style: normal;
+}
+.submitFeedback{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.submitFeedback button{
+    background-color: hsl(195, 80%, 50%);
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+.submitFeedback button:hover{
+    background-color: hsl(195, 80%, 40%);
+}
+.username{
+    font-family: inherit;
+    width: 13em;
+    border-radius: 5px;
+    padding: 5px;
+}
+.newFeedbackText{
+    font-family: inherit;
+    height: 6em;
+    width: 95%;
+    border-radius: 10px;
+    padding: 10px;
+    overflow-wrap: break-word;
+    white-space: normal;
+    border: 1px solid black;
+    background-color: white;
+    align-items: center;
+}
+.submitFeedback button{
+    width: fit-content;
+}
+.charCount{
+    font-size: 0.6em;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+.feedTitle{
+    padding-left: 20px;
+}
+.feedContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 20px;
+}
+.feedContainer h2{
+    color: white;
+}
+.commentContainer{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 10px;
+    transition: transform 0.3s ease
+}
+.commentContainer:hover{
+    transform: scale(1.1)
+}
+.commentContainer span{
+    color: white;
+}
+.commentContainer button{
+    color: black;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.commentContainer button:hover{
+    color: rgb(255, 0, 0);
+}
+.feedComments{
+    height: 5em;
+    width: 25em;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-wrap: break-word;
+    white-space: normal;
+    background-color: white;
+    align-items: center;
+}
+.btnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    gap: 5px;
+    margin: 10px;
+}
+.btnContainer span{
+    align-items: left;
+    justify-content: left;
+}
+@media only screen and (max-width: 800px){
+    .liveFeedCont{
+        width: 100%; 
+        font-family: "Rubik", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        background-color: hsl(195, 80%, 50%);
+        border-radius: 10px;
+        border: 0px solid white;
+        padding: 0px;
+        margin: 10px;
+    }
+    .submitFeedback{
+        background-color: black;
+        border: 0px solid white;
+        border-radius: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .feedComments{
+        font-size: 0.8em;
+        height: 7em;
+        width: 95%;
+        border-radius: 10px;
+        padding: 10px;
+        overflow-wrap: break-word;
+        white-space: normal;
+        overflow-y: scroll;
+    }
+    .commentContainer{
+        transition: none
+    }
+    .commentContainer:hover{
+        transform: none
+    }
+  }

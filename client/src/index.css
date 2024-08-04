@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DK+Loopet:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Playwrite+DK+Loopet:wght@100..400&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+body{
+  margin: 0;
+  background-color: hsl(220, 90%, 15%);
+}
+.appCont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
