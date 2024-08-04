@@ -8,7 +8,7 @@ function ShoppingList(){
     const[newItem, setNewItem] = useState("");
     const[quantity, setQuantity] = useState(1);
 
-    const URL = "http://localhost:5174";
+    const URL = "https://plannerrender.onrender.com";
 
     // Fetch All data in the cart
     useEffect(() => {

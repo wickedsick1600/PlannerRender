@@ -5,7 +5,7 @@ import FeedTrap from '../FeedTrap/FeedTrap.jsx';
 
 function Home(){
     const navigate = useNavigate();
-    const URL = "http://localhost:5174";
+    const URL = "https://plannerrender.onrender.com";
 
     function handleClick(appSelected) {
         if (appSelected == "TODO") navigate('/Todo');

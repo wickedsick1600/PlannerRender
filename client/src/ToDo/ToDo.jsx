@@ -8,7 +8,7 @@ function Planner(){
     const [newTask, setNewTask] = useState("");
     const [finishedTasks, setFinishedTasks] = useState([]);
 
-    const URL = "http://localhost:5174";
+    const URL = "https://plannerrender.onrender.com";
 
      // Gets the list of tasks in the database
     useEffect(() => {
