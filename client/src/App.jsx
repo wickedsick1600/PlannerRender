@@ -1,5 +1,5 @@
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
 } from 'react-router-dom';
@@ -12,7 +12,7 @@ import ShoppingList from './ShoppingList/ShoppingList.jsx';
 function App() {
 
   return (
-  <BrowserRouter>
+  <HashRouter>
     <div className="appCont">
         <Routes>
           <Route path="/" element={<Home />}/>
@@ -20,7 +20,7 @@ function App() {
           <Route path="/ShoppingList" element={<ShoppingList />}/>
         </Routes>
     </div>
-  </BrowserRouter>
+  </HashRouter>
   );
 }
 
