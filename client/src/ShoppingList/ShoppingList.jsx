@@ -7,6 +7,7 @@ function ShoppingList(){
     const[item, setItem] = useState([]);
     const[newItem, setNewItem] = useState("");
     const[quantity, setQuantity] = useState(1);
+    const [disabled, setDisabled] = useState(false)
 
     const URL = "https://plannerrender.onrender.com";
 
@@ -39,6 +40,8 @@ function ShoppingList(){
         };
         try{
             await axios.post(`${URL}/add_cart`, data);
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 3000)
         }
         catch(error){
             console.error(error);
@@ -62,6 +65,8 @@ function ShoppingList(){
         try{
             const value = {"quantity": itemQuantity};
             axios.patch(`${URL}/updateCount/${index}`, value);
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 2000)
         }
         catch (error){
             console.log(error);
@@ -71,6 +76,8 @@ function ShoppingList(){
     async function removeItem(index){
         try{
             axios.delete(`${URL}/deleteProduct/${index}`)
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 3000)
         }
         catch(error){
             console.log(error)
@@ -91,7 +98,7 @@ function ShoppingList(){
                 <option value="Bx">Bx</option>
             </select>
             <input className={styles.shoppingListInput} type="text" placeholder="Enter a product" onChange={(event) => setNewItem(event.target.value)} value={newItem} required/>
-            <button className={styles.formBtn} type="submit">Add to Cart </button>
+            <button className={styles.formBtn} type="submit" disabled={disabled}>Add to Cart </button>
         </form>
         <div className={styles.cartList}>
             <div className={styles.header}>
@@ -104,12 +111,12 @@ function ShoppingList(){
                 <div className={styles.quantityContainer}>
                 <span style={{margin: "5px"}}>{item.quantity}</span>
                     <div className={styles.buttonContainer}>
-                        <button className={styles.quanBtnAdd} onClick={() => adjustQuan(item.id, item.quantity, "+")}>+</button>
-                        <button className={styles.quanBtnSubt} onClick={() => adjustQuan(item.id, item.quantity, "-")}>-</button>
+                        <button className={styles.quanBtnAdd} disabled={disabled} onClick={() => adjustQuan(item.id, item.quantity, "+")}>+</button>
+                        <button className={styles.quanBtnSubt} disabled={disabled} onClick={() => adjustQuan(item.id, item.quantity, "-")}>-</button>
                     </div>
                 </div>
                 <span>{item.unit}</span>
-                <span>{item.product_name}<button className={styles.removeBtn} onClick={() => removeItem(item.id)}>Remove Item</button></span>
+                <span>{item.product_name}<button className={styles.removeBtn} disabled={disabled} onClick={() => removeItem(item.id)}>Remove Item</button></span>
             </div>
                 )}
         </div>  

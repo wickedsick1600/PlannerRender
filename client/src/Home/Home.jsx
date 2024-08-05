@@ -20,7 +20,7 @@ function Home(){
                 <p>
                     This project is still bound for greater heights,
                     there are features that are yet to be implemented. But please...&nbsp;
-                    <b><u>FEEL FREE TO TRY EVERYTHING!!</u></b>.  
+                    <b><u>FEEL FREE TO TRY EVERYTHING!!</u></b>  
                 </p>
                 <p>
                     Kindly report any bugs/issues you have experienced in the app or maybe just share

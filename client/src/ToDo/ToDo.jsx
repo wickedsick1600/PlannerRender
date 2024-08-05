@@ -7,6 +7,7 @@ function Planner(){
     const [task, setTask] = useState([]);
     const [newTask, setNewTask] = useState("");
     const [finishedTasks, setFinishedTasks] = useState([]);
+    const [disabled, setDisabled] = useState(false);
 
     const URL = "https://plannerrender.onrender.com";
 
@@ -43,6 +44,8 @@ function Planner(){
         try{
             const value = {"task_name":newTask}
             await axios.post(`${URL}/insert`, value);
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 3000)
             setNewTask("");
         }
         catch(error){
@@ -65,6 +68,8 @@ function Planner(){
             const taskTransfer = task[idx].task_name;
             const value = {"finished_tasks": taskTransfer, "time_finished": final};
             await axios.post(`${URL}/insert_finished_tasks`, value);
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 3000)
         }
         catch(error){
             console.log(error);
@@ -76,6 +81,8 @@ function Planner(){
     async function deleteTask(index) {
         try{
             await axios.delete(`${URL}/delete/${index}`);
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 3000)
         }
         catch(error){
             console.log(error);
@@ -87,6 +94,8 @@ function Planner(){
         try{
             const value = {"task_name": finishedTasks[index].finished_tasks};
             axios.post(`${URL}/insert`, value);
+            setDisabled(true);
+            setTimeout(() => setDisabled(false), 3000)
         }
         catch(error){
             console.log(error);
@@ -112,7 +121,7 @@ function Planner(){
                 placeholder="Enter a task" 
                 onChange={(e) => setNewTask(e.target.value)} 
                 required />
-            <button className={styles.addTaskBtn}>ADD TASK</button>
+            <button className={styles.addTaskBtn} disabled={disabled} >ADD TASK</button>
         </form>
         <ol>
             {task.map((task, index) => 
@@ -120,12 +129,14 @@ function Planner(){
                     <span className={styles.taskName}>{task.task_name}</span>
                     <button 
                         className={styles.doneBtn} 
-                        onClick={() => doneTask(task.id, index)}> 
+                        onClick={() => doneTask(task.id, index)}
+                        disabled={disabled}> 
                         MARK AS DONE
                     </button>
                     <button 
                         className={styles.delBtn} 
-                        onClick={() => deleteTask(task.id)}>
+                        onClick={() => deleteTask(task.id)}
+                        disabled={disabled}>
                         DELETE TASK
                     </button>
                 </li>)}
@@ -137,7 +148,8 @@ function Planner(){
                         <span className={styles.taskName}>{finishedTasks.finished_tasks}</span>
                         <button 
                             className={styles.undoBtn} 
-                            onClick={() => undoTask(index)}> 
+                            onClick={() => undoTask(index)}
+                            disabled={disabled}> 
                             UNDO 
                         </button>
                         <span className={styles.doneAt}>{finishedTasks.time_finished}</span>
