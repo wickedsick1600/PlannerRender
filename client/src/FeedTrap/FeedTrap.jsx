@@ -64,55 +64,53 @@ function FeedTrap ({URL}){
         }
     }
     return(<>
-        
-            {
-                <ClipLoader color={`#19b3e6`} size={150} aria-label="Loading Spinner" data-testid="loader" />
-                
-                &&
-
-                <div className={styles.liveFeedCont}>
-                    <h1>What&apos;s on your mind?</h1>
-                    <form className={styles.submitFeedback} onSubmit={handleSubmit}> 
-                        <input 
-                            className={styles.username} 
-                            type="text" 
-                            value={username} 
-                            onChange={(e) => setUsername(e.target.value)} 
-                            placeholder="Type your name" maxLength={25} 
-                            required>
-                        </input>
-                        <textarea 
-                            className={styles.newFeedbackText} 
-                            value={comment} 
-                            onChange={(e) => setComment(e.target.value)} 
-                            placeholder="Type a comment" 
-                            required>
-                        </textarea>
-                        <div className={styles.charCount}>
-                            <button type="submit" disabled={disabled} >Submit</button>
-                            <h3>Characters Left: {200 - (comment.length)}</h3>
-                        </div>
-                    </form>
-                    <div className={styles.feedContainer}>
-                        {feed.map((feed, index) => 
-                            <div key={index} className={styles.commentContainer}>
-                                <h2>{feed.username} said...</h2>
-                                <p className={styles.feedComments}>{feed.comment}</p>
-                                <div className={styles.btnContainer}>
-                                    <button 
-                                        onClick={() => handleLike(feed.id, feed.likes)} 
-                                        className="material-symbols-outlined"
-                                        disabled={disabled}>favorite
-                                    </button>
-                                    <span>{feed.likes || 0}</span>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-        
+    <div className={styles.liveFeedCont}>
+        <h1>What&apos;s on your mind?</h1>
+            <form className={styles.submitFeedback} onSubmit={handleSubmit}> 
+                <input 
+                    className={styles.username} 
+                    type="text" 
+                    value={username} 
+                    onChange={(e) => setUsername(e.target.value)} 
+                    placeholder="Type your name" maxLength={25} 
+                    required>
+                </input>
+                <textarea 
+                    className={styles.newFeedbackText} 
+                    value={comment} 
+                    onChange={(e) => setComment(e.target.value)} 
+                    placeholder="Type a comment" 
+                    required>
+                </textarea>
+                <div className={styles.charCount}>
+                    <button type="submit" disabled={disabled} >Submit</button>
+                    <h3>Characters Left: {200 - (comment.length)}</h3>
                 </div>
-                
+            </form>
+
+        {
+            <ClipLoader color={`#19b3e6`} size={150} aria-label="Loading Spinner" data-testid="loader" />
+            
+            &&
+            
+            <div className={styles.feedContainer}>
+                {feed.map((feed, index) => 
+                    <div key={index} className={styles.commentContainer}>
+                        <h2>{feed.username} said...</h2>
+                        <p className={styles.feedComments}>{feed.comment}</p>
+                        <div className={styles.btnContainer}>
+                            <button 
+                                onClick={() => handleLike(feed.id, feed.likes)} 
+                                className="material-symbols-outlined"
+                                disabled={disabled}>favorite
+                            </button>
+                            <span>{feed.likes || 0}</span>
+                        </div>
+                    </div>
+                )}
+            </div>                
             }
+    </div>
         
     </>);
 }
