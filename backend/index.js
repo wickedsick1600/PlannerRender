@@ -18,7 +18,7 @@ app.use(cors());
 
 const port = process.env.PORT || 5174;
 app.listen(port, () => {
-    console.log(`Listening on port ${port}, ${process.env.REACT_APP_HOST}, ${process.env.REACT_APP_USER}, and ${process.env.REACT_APP_DATABASE}`);
+    console.log(`Listening on port ${port}`);
 })
 
     // For TODO Component

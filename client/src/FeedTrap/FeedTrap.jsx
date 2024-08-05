@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './FeedTrap.module.css'
 import axios from 'axios'
-import ClipLoader from "react-spinners/ClipLoader";
 
 function FeedTrap ({URL}){
     const [feed, setFeed] = useState([]);
@@ -64,7 +63,7 @@ function FeedTrap ({URL}){
         }
     }
     return(<>
-    <div className={styles.liveFeedCont}>
+        <div className={styles.liveFeedCont}>
         <h1>What&apos;s on your mind?</h1>
             <form className={styles.submitFeedback} onSubmit={handleSubmit}> 
                 <input 
@@ -87,16 +86,10 @@ function FeedTrap ({URL}){
                     <h3>Characters Left: {200 - (comment.length)}</h3>
                 </div>
             </form>
-
-        {
-            <ClipLoader color={`#19b3e6`} size={150} aria-label="Loading Spinner" data-testid="loader" />
-            
-            &&
-            
-            <div className={styles.feedContainer}>
-                {feed.map((feed, index) => 
-                    <div key={index} className={styles.commentContainer}>
-                        <h2>{feed.username} said...</h2>
+        <div className={styles.feedContainer}>
+            {feed.map((feed, index) => 
+                <div key={index} className={styles.commentContainer}>
+                    <h2>{feed.username} said...</h2>
                         <p className={styles.feedComments}>{feed.comment}</p>
                         <div className={styles.btnContainer}>
                             <button 
@@ -106,12 +99,11 @@ function FeedTrap ({URL}){
                             </button>
                             <span>{feed.likes || 0}</span>
                         </div>
-                    </div>
-                )}
-            </div>                
-            }
-    </div>
+                </div>
+            )}
+        </div>
         
+    </div>
     </>);
 }
 
