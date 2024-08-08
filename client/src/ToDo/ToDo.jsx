@@ -77,7 +77,7 @@ function Planner(){
 
         deleteTask(index);
     }
-     // Delete the new task in the table
+    // Delete the new task in the table
     async function deleteTask(index) {
         try{
             await axios.delete(`${URL}/delete/${index}`);
